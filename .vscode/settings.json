@@ -1,0 +1,14 @@
+{
+  "workbench.colorCustomizations": {
+    "titleBar.activeForeground": "#f7d034",
+    "titleBar.inactiveForeground": "#ffffffCC",
+    "titleBar.activeBackground": "#13b8c2",
+    "titleBar.inactiveBackground": "#13b8c2CC"
+  },
+  "jest.autoEnable": false,
+  "jest.enableCodeLens": false,
+  "jest.enableSnapshotUpdateMessages": false,
+  "jest.enableInlineErrorMessages": false,
+  "jest.enableSnapshotPreviews": false,
+  "jest.runAllTestsFirst": false
+}

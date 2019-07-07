@@ -1,0 +1,44 @@
+{
+  "extends": ["eslint:recommended", "plugin:react/recommended", "fbjs", "airbnb"],
+  "env": {
+    "browser": true,
+    "node": true,
+    "mocha": true,
+    "jest": true
+  },
+  "plugins": ["react", "react-hooks"],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "forOf": true,
+      "jsx": true,
+      "es6": true,
+      "classes": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "rules": {
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ],
+    "react/forbid-prop-types": 0,
+    "max-len": [2, 120, 4],
+    "arrow-parens": 0,
+    "consistent-return": 0,
+    "arrow-body-style": 0,
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": 0,
+    "object-curly-newline": [
+      "error",
+      {
+        "ObjectExpression": { "multiline": true, "minProperties": 8 },
+        "ObjectPattern": { "multiline": true, "minProperties": 8 },
+        "ImportDeclaration": "never",
+        "ExportDeclaration": { "multiline": true, "minProperties": 8 }
+      }
+    ]
+  }
+}
