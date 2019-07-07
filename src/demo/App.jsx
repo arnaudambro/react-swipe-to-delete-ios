@@ -38,34 +38,34 @@ class App extends React.Component {
         content: 'Item 7',
         color: `rgba(${color()}, ${color()}, ${color()}, 1)`
       },
-      // {
-      //   content: 'Item 8',
-      //   color: `rgba(${color()}, ${color()}, ${color()}, 1)`
-      // },
-      // {
-      //   content: 'Item 9',
-      //   color: `rgba(${color()}, ${color()}, ${color()}, 1)`
-      // },
-      // {
-      //   content: 'Item 10',
-      //   color: `rgba(${color()}, ${color()}, ${color()}, 1)`
-      // },
-      // {
-      //   content: 'Item 11',
-      //   color: `rgba(${color()}, ${color()}, ${color()}, 1)`
-      // },
-      // {
-      //   content: 'Item 12',
-      //   color: `rgba(${color()}, ${color()}, ${color()}, 1)`
-      // },
-      // {
-      //   content: 'Item 13',
-      //   color: `rgba(${color()}, ${color()}, ${color()}, 1)`
-      // },
-      // {
-      //   content: 'Item 14',
-      //   color: `rgba(${color()}, ${color()}, ${color()}, 1)`
-      // },
+      {
+        content: 'Item 8',
+        color: `rgba(${color()}, ${color()}, ${color()}, 1)`
+      },
+      {
+        content: 'Item 9',
+        color: `rgba(${color()}, ${color()}, ${color()}, 1)`
+      },
+      {
+        content: 'Item 10',
+        color: `rgba(${color()}, ${color()}, ${color()}, 1)`
+      },
+      {
+        content: 'Item 11',
+        color: `rgba(${color()}, ${color()}, ${color()}, 1)`
+      },
+      {
+        content: 'Item 12',
+        color: `rgba(${color()}, ${color()}, ${color()}, 1)`
+      },
+      {
+        content: 'Item 13',
+        color: `rgba(${color()}, ${color()}, ${color()}, 1)`
+      },
+      {
+        content: 'Item 14',
+        color: `rgba(${color()}, ${color()}, ${color()}, 1)`
+      },
     ]
   }
 
