@@ -32,3 +32,9 @@ import SwipeToDelete from 'react-swipe-to-delete-ios'
   {children}
 </SwipeToDelete>
 ```
+
+## Todo
+
+- [ ] Tests
+- [ ] Possibility to add SVG icon instead of text
+- [ ] Browser compatibility check

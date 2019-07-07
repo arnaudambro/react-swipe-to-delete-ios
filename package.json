@@ -1,18 +1,24 @@
 {
   "name": "react-swipe-to-delete-ios",
   "homepage": "https://arnaudambro.github.io/react-swipe-to-delete-ios/",
-  "version": "0.1.0",
+  "author": "Arnaud Ambroselli <arnaud@ambroselli.io>",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:arnaudambro/react-swipe-to-delete-ios.git"
+  },
+  "version": "1.0.0",
   "private": false,
   "license": "MIT",
   "main": "lib/index.js",
   "module": "lib/index.js",
-  "dependencies": {
+  "peerDependencies": {
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "^3.0.1",
     "styled-components": "^4.3.2"
   },
+  "keywords": ["react", "swipe-to-delete", "swipeable", "delete", "ios"],
   "devDependencies": {
     "@babel/cli": "^7.4.3",
     "@babel/plugin-proposal-class-properties": "^7.4.4",
