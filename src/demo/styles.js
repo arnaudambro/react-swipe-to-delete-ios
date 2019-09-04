@@ -18,6 +18,9 @@ const GlobalStyle = createGlobalStyle`
     align-items: center;
     flex-direction: column;
     min-height: 750px;
+    max-width: 100vw;
+    overflow-x: hidden;
+    background: white;
   }
 
   a#back-to-github {
