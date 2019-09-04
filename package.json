@@ -6,17 +6,19 @@
     "type": "git",
     "url": "git@github.com:arnaudambro/react-swipe-to-delete-ios.git"
   },
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": false,
   "license": "MIT",
   "main": "lib/index.js",
   "module": "lib/index.js",
-  "peerDependencies": {
+  "dependencies": {
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "^3.0.1",
     "styled-components": "^4.3.2"
+  },
+  "peerDependencies": {
   },
   "keywords": ["react", "swipe-to-delete", "swipeable", "delete", "ios"],
   "devDependencies": {
