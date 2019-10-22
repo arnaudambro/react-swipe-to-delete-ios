@@ -85,8 +85,8 @@ class SwipeToDelete extends React.Component {
 
   render() {
     const { translate, touching, deleting } = this.state;
-    const { deleteWidth, transitionDuration, deleteText, deleteColor, height } = this.props;
-    const cssParams = { deleteWidth, transitionDuration, deleteColor, heightProp: height };
+    const { deleteWidth, transitionDuration, deleteText, deleteColor } = this.props;
+    const cssParams = { deleteWidth, transitionDuration, deleteColor };
     const shiftDelete = -translate >= this.deleteWithoutConfirmThreshold;
     return(
       <Container
@@ -124,7 +124,6 @@ class SwipeToDelete extends React.Component {
 
 SwipeToDelete.propTypes = {
   onDelete: PropTypes.func.isRequired,
-  height: PropTypes.number.isRequired,
   transitionDuration: PropTypes.number,
   deleteWidth: PropTypes.number,
   deleteColor: PropTypes.string,

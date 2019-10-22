@@ -9,8 +9,7 @@ const deletingCss = css`
 `
 
 const Container = styled.div`
-  height: ${({ heightProp }) => heightProp}px;
-  max-height: ${({ heightProp }) => heightProp + 10}px;
+  max-height: 100%;
   width: auto;
   position: relative;
   box-sizing: border-box;
@@ -48,7 +47,7 @@ const Delete = styled.div`
     background: transparent;
     border: none;
     color: white;
-    font-size: 1rem;
+    font-size: 12px;
     cursor: pointer;
   }
 `

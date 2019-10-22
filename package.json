@@ -18,9 +18,14 @@
     "react-scripts": "^3.0.1",
     "styled-components": "^4.3.2"
   },
-  "peerDependencies": {
-  },
-  "keywords": ["react", "swipe-to-delete", "swipeable", "delete", "ios"],
+  "peerDependencies": {},
+  "keywords": [
+    "react",
+    "swipe-to-delete",
+    "swipeable",
+    "delete",
+    "ios"
+  ],
   "devDependencies": {
     "@babel/cli": "^7.4.3",
     "@babel/plugin-proposal-class-properties": "^7.4.4",
