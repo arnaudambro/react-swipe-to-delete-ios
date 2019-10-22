@@ -2,17 +2,18 @@ import styled, { css } from 'styled-components'
 
 const deletingCss = css`
   transition: all ${({ transitionDuration }) => transitionDuration}ms ease-out;
-  max-height: 0;
+  transform: scaleY(0);
   * {
     outline: none;
   }
 `
 
 const Container = styled.div`
-  max-height: 100%;
+  height: auto;
   width: auto;
   position: relative;
   box-sizing: border-box;
+  transform: scaleY(1);
   ${props => props.deleting && deletingCss}
   *, *:before, *:after {
     box-sizing: border-box;
