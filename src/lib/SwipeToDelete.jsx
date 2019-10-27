@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { cursorPosition } from './helpers';
 import { Container, Delete, Content } from './styles';
 
-
 class SwipeToDelete extends React.Component {
 
   state = {
@@ -42,12 +41,11 @@ class SwipeToDelete extends React.Component {
 
   onMouseMove = (e) => {
     if (!this.state.touching) return
-    cursorPosition(e)
-    if (cursorPosition(e) > this.startTouchPosition - this.initTranslate) {
+    if (cursorPosition(e) + this.props.swipeThreshhold > this.startTouchPosition - this.initTranslate) {
       this.setState({ translate: 0 })
       return;
     }
-    this.setState({ translate: cursorPosition(e) - this.startTouchPosition + this.initTranslate })
+      this.setState({ translate: cursorPosition(e) - this.startTouchPosition + this.initTranslate })
   };
 
   onMouseUp = () => {
@@ -126,6 +124,7 @@ SwipeToDelete.propTypes = {
   onDelete: PropTypes.func.isRequired,
   transitionDuration: PropTypes.number,
   deleteWidth: PropTypes.number,
+  swipeThreshhold: PropTypes.number,
   deleteColor: PropTypes.string,
   deleteText: PropTypes.string,
 }
@@ -133,6 +132,7 @@ SwipeToDelete.propTypes = {
 SwipeToDelete.defaultProps = {
   transitionDuration: 250,
   deleteWidth: 75,
+  swipeThreshhold: 20,
   deleteColor: 'rgba(252, 58, 48, 1.00)',
   deleteText: 'Delete',
 }
