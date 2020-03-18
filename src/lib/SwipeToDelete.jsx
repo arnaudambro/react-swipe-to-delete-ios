@@ -91,6 +91,7 @@ class SwipeToDelete extends React.Component {
     return(
       <Container
         deleting={deleting}
+        id="delete-container"
         {...cssParams}
         ref={c => {
           if (c) {
@@ -101,13 +102,15 @@ class SwipeToDelete extends React.Component {
         }}
       >
         <Delete
+          id="delete"
           buttonMarginLeft={shiftDelete ? this.containerWidth + translate : this.containerWidth - deleteWidth}
           {...cssParams}
         >
-          <button onClick={this.onDeleteClick}>{deleteText}</button>
+          <button id="delete-button" onClick={this.onDeleteClick}>{deleteText}</button>
         </Delete>
         <Content
           {...cssParams}
+          id="delete-content"
           deleting={deleting}
           onMouseDown={this.onMouseDown}
           onTouchStart={this.onMouseDown}

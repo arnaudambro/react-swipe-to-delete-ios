@@ -6,28 +6,33 @@
     "type": "git",
     "url": "git@github.com:arnaudambro/react-swipe-to-delete-ios.git"
   },
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": false,
   "license": "MIT",
   "main": "lib/index.js",
   "module": "lib/index.js",
   "dependencies": {
-    "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-scripts": "^3.0.1",
-    "styled-components": "^4.3.2"
+    "prop-types": "15.7.2",
+    "react": "16.13.0",
+    "react-dom": "16.13.0",
+    "react-scripts": "3.4.0",
+    "styled-components": "5.0.1"
   },
-  "peerDependencies": {
-  },
-  "keywords": ["react", "swipe-to-delete", "swipeable", "delete", "ios"],
+  "peerDependencies": {},
+  "keywords": [
+    "react",
+    "swipe-to-delete",
+    "swipeable",
+    "delete",
+    "ios"
+  ],
   "devDependencies": {
-    "@babel/cli": "^7.4.3",
-    "@babel/plugin-proposal-class-properties": "^7.4.4",
-    "@babel/plugin-transform-runtime": "^7.4.4",
-    "@babel/preset-env": "^7.4.4",
-    "@babel/preset-react": "^7.0.0",
-    "babel-polyfill": "^6.26.0"
+    "@babel/cli": "7.8.4",
+    "@babel/plugin-proposal-class-properties": "7.8.3",
+    "@babel/plugin-transform-runtime": "7.8.3",
+    "@babel/preset-env": "7.8.7",
+    "@babel/preset-react": "7.8.3",
+    "babel-polyfill": "6.26.0"
   },
   "scripts": {
     "start": "react-scripts start",

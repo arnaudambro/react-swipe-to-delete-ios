@@ -26,8 +26,8 @@ import SwipeToDelete from 'react-swipe-to-delete-ios'
   // optional
   transitionDuration={250} // default
   deleteWidth={75} // default
-  deleteColor'rgba(252, 58, 48, 1.00)' // default
-  deleteText='Delete' // default
+  deleteColor="rgba(252, 58, 48, 1.00)" // default
+  deleteText="Delete" // default
 >
   {children}
 </SwipeToDelete>
