@@ -100,13 +100,14 @@ class SwipeToDelete extends React.Component {
 
   render() {
     const { translate, touching, deleting } = this.state;
-    const { deleteWidth, transitionDuration, deleteText, deleteColor, height } = this.props;
+    const { deleteWidth, transitionDuration, deleteText, deleteColor, height, style = {} } = this.props;
     const cssParams = { deleteWidth, transitionDuration, deleteColor, heightProp: height };
     const shiftDelete = -translate >= this.deleteWithoutConfirmThreshold;
     return (
       <Container
         deleting={deleting}
         id="delete-container"
+        style={style}
         {...cssParams}
         ref={c => {
           if (c) {
@@ -147,6 +148,7 @@ SwipeToDelete.propTypes = {
   deleteWidth: PropTypes.number,
   deleteColor: PropTypes.string,
   deleteText: PropTypes.string,
+  style: PropsTypes.object
 }
 
 SwipeToDelete.defaultProps = {
