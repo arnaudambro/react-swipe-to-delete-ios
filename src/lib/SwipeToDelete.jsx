@@ -148,7 +148,7 @@ SwipeToDelete.propTypes = {
   deleteWidth: PropTypes.number,
   deleteColor: PropTypes.string,
   deleteText: PropTypes.string,
-  style: PropsTypes.object
+  style: PropTypes.object
 }
 
 SwipeToDelete.defaultProps = {
