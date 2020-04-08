@@ -14,7 +14,20 @@ class SwipeToDelete extends React.Component {
 
   componentDidMount() {
     // to get ref dimensions
-    this.forceUpdate()
+    this.forceUpdate();
+    window.addEventListener('mousedown', this.testToResetState);
+    window.addEventListener('touchstart', this.testToResetState);
+  }
+
+  testToResetState = (event) => {
+    const container = document.getElementById('delete-container').parentElement;
+    if (!container.contains(event.target)) {
+      this.setState({
+        touching: null,
+        translate: 0,
+        deleting: false,
+      })
+    }
   }
 
   onMouseDown = (e) => {
@@ -80,7 +93,9 @@ class SwipeToDelete extends React.Component {
   }
 
   componentWillUnmount() {
-    this.addEventListenerToMoveAndUp(true)
+    this.addEventListenerToMoveAndUp(true);
+    window.removeEventListener('mousedown', this.testToResetState);
+    window.removeEventListener('touchstart', this.testToResetState);
   }
 
   render() {
@@ -88,7 +103,7 @@ class SwipeToDelete extends React.Component {
     const { deleteWidth, transitionDuration, deleteText, deleteColor, height } = this.props;
     const cssParams = { deleteWidth, transitionDuration, deleteColor, heightProp: height };
     const shiftDelete = -translate >= this.deleteWithoutConfirmThreshold;
-    return(
+    return (
       <Container
         deleting={deleting}
         id="delete-container"
@@ -121,7 +136,7 @@ class SwipeToDelete extends React.Component {
           {this.props.children}
         </Content>
       </Container>
-     )
+    )
   }
 }
 
