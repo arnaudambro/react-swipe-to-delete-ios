@@ -18,6 +18,7 @@ class SwipeToDelete extends React.Component {
   }
 
   onMouseDown = (e) => {
+    if (this.props.disabled) return;
     if (this.state.touching) return;
     this.startTouchPosition = cursorPosition(e);
     this.initTranslate = this.state.translate;
@@ -132,7 +133,8 @@ SwipeToDelete.propTypes = {
   deleteWidth: PropTypes.number,
   deleteColor: PropTypes.string,
   deleteText: PropTypes.string,
-  deleteComponent: PropTypes.node
+  deleteComponent: PropTypes.node,
+  disabled: PropTypes.bool
 }
 
 SwipeToDelete.defaultProps = {
@@ -140,6 +142,7 @@ SwipeToDelete.defaultProps = {
   deleteWidth: 75,
   deleteColor: 'rgba(252, 58, 48, 1.00)',
   deleteText: 'Delete',
+  disabled: false
 }
 
 
