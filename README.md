@@ -28,6 +28,8 @@ import SwipeToDelete from 'react-swipe-to-delete-ios'
   deleteWidth={75} // default
   deleteColor="rgba(252, 58, 48, 1.00)" // default
   deleteText="Delete" // default
+  disabled={false} // default
+  deleteComponent={<DeleteComponent/>} // not default
 >
   {children}
 </SwipeToDelete>
@@ -36,5 +38,4 @@ import SwipeToDelete from 'react-swipe-to-delete-ios'
 ## Todo
 
 - [ ] Tests
-- [ ] Possibility to add SVG icon instead of text
 - [ ] Browser compatibility check

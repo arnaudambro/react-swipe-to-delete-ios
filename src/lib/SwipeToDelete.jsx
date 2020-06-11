@@ -18,6 +18,7 @@ class SwipeToDelete extends React.Component {
   }
 
   onMouseDown = (e) => {
+    if (this.props.disabled) return;
     if (this.state.touching) return;
     this.startTouchPosition = cursorPosition(e);
     this.initTranslate = this.state.translate;
@@ -85,7 +86,7 @@ class SwipeToDelete extends React.Component {
 
   render() {
     const { translate, touching, deleting } = this.state;
-    const { deleteWidth, transitionDuration, deleteText, deleteColor, height } = this.props;
+    const { deleteWidth, transitionDuration, deleteText, deleteComponent, deleteColor, height } = this.props;
     const cssParams = { deleteWidth, transitionDuration, deleteColor, heightProp: height };
     const shiftDelete = -translate >= this.deleteWithoutConfirmThreshold;
     return(
@@ -106,7 +107,7 @@ class SwipeToDelete extends React.Component {
           buttonMarginLeft={shiftDelete ? this.containerWidth + translate : this.containerWidth - deleteWidth}
           {...cssParams}
         >
-          <button id="delete-button" onClick={this.onDeleteClick}>{deleteText}</button>
+          <button id="delete-button" onClick={this.onDeleteClick}>{deleteComponent ? deleteComponent : deleteText}</button>
         </Delete>
         <Content
           {...cssParams}
@@ -132,6 +133,8 @@ SwipeToDelete.propTypes = {
   deleteWidth: PropTypes.number,
   deleteColor: PropTypes.string,
   deleteText: PropTypes.string,
+  deleteComponent: PropTypes.node,
+  disabled: PropTypes.bool
 }
 
 SwipeToDelete.defaultProps = {
@@ -139,6 +142,7 @@ SwipeToDelete.defaultProps = {
   deleteWidth: 75,
   deleteColor: 'rgba(252, 58, 48, 1.00)',
   deleteText: 'Delete',
+  disabled: false
 }
 
 
