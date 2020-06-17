@@ -28,12 +28,26 @@ import SwipeToDelete from 'react-swipe-to-delete-ios'
   deleteWidth={75} // default
   deleteColor="rgba(252, 58, 48, 1.00)" // default
   deleteText="Delete" // default
-  disabled={false} // default
   deleteComponent={<DeleteComponent/>} // not default
+  disabled={false} // default
 >
   {children}
 </SwipeToDelete>
 ```
+
+## Props
+
+Prop | Type | Default
+--- | --- | ---
+**onDelete** | function | _required_
+**height** | number | _required_
+transitionDuration | number (ms) | 250
+deleteWidth | number (px) | 75
+deleteColor | string | "rgba(252, 58, 48, 1.00)"
+deleteText | string | "Delete" (_deleteText or deleteComponent_)
+deleteComponent | node | null (_deleteText or deleteComponent_)
+disabled | bool | false
+
 
 ## Todo
 
