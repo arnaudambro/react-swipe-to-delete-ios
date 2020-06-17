@@ -6,7 +6,7 @@
     "type": "git",
     "url": "git@github.com:arnaudambro/react-swipe-to-delete-ios.git"
   },
-  "version": "1.0.6",
+  "version": "1.0.7",
   "private": false,
   "license": "MIT",
   "main": "lib/index.js",
@@ -38,7 +38,7 @@
     "start": "react-scripts start",
     "eject": "react-scripts eject",
     "build": "rm -rf lib && NODE_ENV=production babel src/lib --out-dir lib --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
-    "publish": "npm run build && npm publish",
+    "publish-build": "npm run build && npm publish",
     "build-demo": "react-scripts build"
   },
   "browserslist": [
