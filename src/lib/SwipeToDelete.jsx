@@ -42,9 +42,14 @@ class SwipeToDelete extends React.Component {
   }
 
   onMouseMove = (e) => {
-    if (!this.state.touching) return
-    cursorPosition(e)
-    if (cursorPosition(e) > this.startTouchPosition - this.initTranslate) {
+    const { rtl } = this.props;
+    if (!this.state.touching) {
+      return cursorPosition(e);
+    }
+    if (
+      (!rtl && cursorPosition(e) > this.startTouchPosition - this.initTranslate)
+      || (rtl && cursorPosition(e) < this.startTouchPosition - this.initTranslate)
+    ) {
       this.setState({ translate: 0 })
       return;
     }
@@ -53,17 +58,17 @@ class SwipeToDelete extends React.Component {
 
   onMouseUp = () => {
     this.startTouchPosition = null;
-    const { deleteWidth } = this.props;
+    const { deleteWidth, rtl } = this.props;
     const newState = {
       touching: false
     }
     const acceptableMove = -deleteWidth * 0.7;
-    const showDelete = this.state.translate < acceptableMove;
-    const notShowDelete = this.state.translate >= acceptableMove;
-    const deleteWithoutConfirm = -this.state.translate >= this.deleteWithoutConfirmThreshold;
+    const showDelete = (rtl ? -1 : 1) * this.state.translate < acceptableMove;
+    const notShowDelete = (rtl ? -1 : 1) * this.state.translate >= acceptableMove;
+    const deleteWithoutConfirm = (rtl ? 1 : -1) * this.state.translate >= this.deleteWithoutConfirmThreshold;
     if (deleteWithoutConfirm) newState.translate = -this.containerWidth;
     if (notShowDelete) newState.translate = 0;
-    if (showDelete && !deleteWithoutConfirm) newState.translate = -deleteWidth;
+    if (showDelete && !deleteWithoutConfirm) newState.translate = (rtl ? 1 : -1) * deleteWidth;
     this.setState(newState, () => {
       if (deleteWithoutConfirm) this.onDeleteClick()
     });
@@ -86,8 +91,8 @@ class SwipeToDelete extends React.Component {
 
   render() {
     const { translate, touching, deleting } = this.state;
-    const { deleteWidth, transitionDuration, deleteText, deleteComponent, deleteColor, height } = this.props;
-    const cssParams = { deleteWidth, transitionDuration, deleteColor, heightProp: height };
+    const { deleteWidth, transitionDuration, deleteText, deleteComponent, deleteColor, height, rtl } = this.props;
+    const cssParams = { deleteWidth, transitionDuration, deleteColor, heightProp: height, rtl };
     const shiftDelete = -translate >= this.deleteWithoutConfirmThreshold;
     return(
       <Container
@@ -104,7 +109,7 @@ class SwipeToDelete extends React.Component {
       >
         <Delete
           id="delete"
-          buttonMarginLeft={shiftDelete ? this.containerWidth + translate : this.containerWidth - deleteWidth}
+          buttonMargin={shiftDelete ? this.containerWidth + translate : this.containerWidth - deleteWidth}
           {...cssParams}
         >
           <button id="delete-button" onClick={this.onDeleteClick}>{deleteComponent ? deleteComponent : deleteText}</button>
@@ -134,7 +139,8 @@ SwipeToDelete.propTypes = {
   deleteColor: PropTypes.string,
   deleteText: PropTypes.string,
   deleteComponent: PropTypes.node,
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  rtl: PropTypes.bool,
 }
 
 SwipeToDelete.defaultProps = {
@@ -142,7 +148,8 @@ SwipeToDelete.defaultProps = {
   deleteWidth: 75,
   deleteColor: 'rgba(252, 58, 48, 1.00)',
   deleteText: 'Delete',
-  disabled: false
+  disabled: false,
+  rtl: false,
 }
 
 
