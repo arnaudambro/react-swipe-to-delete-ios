@@ -30,6 +30,7 @@ import SwipeToDelete from 'react-swipe-to-delete-ios'
   deleteText="Delete" // default
   deleteComponent={<DeleteComponent/>} // not default
   disabled={false} // default
+  rtl={false} // default
 >
   {children}
 </SwipeToDelete>
@@ -47,6 +48,7 @@ deleteColor | string | "rgba(252, 58, 48, 1.00)"
 deleteText | string | "Delete" (_deleteText or deleteComponent_)
 deleteComponent | node | null (_deleteText or deleteComponent_)
 disabled | bool | false
+rtl | bool | false
 
 
 ## Todo

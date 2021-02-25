@@ -18,13 +18,14 @@ const Container = styled.div`
   *, *:before, *:after {
     box-sizing: border-box;
   }
+  overflow: hidden;
 `
 
 const Content = styled.div`
   height: 100%;
   width: auto;
   position: relative;
-  transform: ${props => props.deleting && 'scale(0)'} translateX(${({ translate }) => translate}px);
+  transform: ${props => props.deleting && 'scale(0)'} translateX(${({ translate, rtl }) => (rtl ? 1 : 1) * translate}px);
   ${props => props.transition && `transition: transform ${props.transitionDuration}ms ease-out`}
 `
 
@@ -42,7 +43,7 @@ const Delete = styled.div`
   button {
     width: ${({ deleteWidth }) => deleteWidth}px;
     transition: margin ${({ transitionDuration }) => transitionDuration}ms ease-in-out;
-    margin-left: ${({ buttonMarginLeft }) => buttonMarginLeft}px;
+   ${({ buttonMargin, rtl }) => `margin-${ rtl ? 'right': 'left' }: ${buttonMargin}px`};
     text-align: center;
     height: 100%;
     background: transparent;
