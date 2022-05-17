@@ -1,0 +1,77 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  color: #111;
+  font-family: sans-serif;
+  box-sizing: border-box;
+  position: relative;
+}
+
+body {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  min-height: 750px;
+  max-width: 100vw;
+  overflow-x: hidden;
+  background: white;
+}
+
+a#back-to-github {
+  position: absolute;
+  width: 200px;
+  background: #111;
+  color: white;
+  height: 30px;
+  top: 35px;
+  right: -50px;
+  transform: rotate(45deg);
+  text-align: center;
+  line-height: 30px;
+  text-decoration: none;
+}
+
+#root {
+  max-width: 100%;
+  width: 300px;
+  border: 1px solid #111;
+  max-height: 400px;
+  overflow: auto;
+}
+
+:root {
+  --itemHeight: 50px;
+  --rstdiHeight: 50px;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.dot {
+  height: calc(var(--itemHeight) * 0.5);
+  width: calc(var(--itemHeight) * 0.5);
+  margin-right: var(--itemHeight);
+  border-radius: 50%;
+}
+
+.item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: var(--itemHeight);
+  line-height: var(--itemHeight);
+  border-bottom: 1px solid grey;
+  padding-left: 10px;
+  background: white;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
