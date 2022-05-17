@@ -1,6 +1,6 @@
 {
   "name": "react-swipe-to-delete-ios",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "homepage": "https://arnaudambro.github.io/react-swipe-to-delete-ios/",
   "author": "@arnaudambro",
   "license": "MIT",
@@ -26,7 +26,7 @@
     "ios"
   ],
   "peerDependencies": {
-    "react": "^18.1.0"
+    "react": "^16.13.0 || ^17 || ^18"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^22.0.0",

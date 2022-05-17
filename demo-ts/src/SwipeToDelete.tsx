@@ -1,7 +1,9 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
+import "./styles.css";
 
 export interface Props {
-  onDelete: any;
+  onDelete: Function;
+  onDeleteConfirm?: Function;
   deleteComponent?: React.ReactNode;
   disabled?: boolean;
   height?: number;
@@ -24,9 +26,10 @@ const cursorPosition = (event: TouchEvent | MouseEvent | React.TouchEvent | Reac
 
 const SwipeToDelete = ({
   onDelete,
+  onDeleteConfirm,
   deleteComponent,
   disabled = false,
-  height = 30,
+  height = 50,
   transitionDuration = 250,
   deleteWidth = 75,
   deleteColor = "rgba(252, 58, 48, 1.00)",
@@ -102,10 +105,26 @@ const SwipeToDelete = ({
     [onMove]
   );
 
-  const onDeleteClick = useCallback(() => {
+  const onDeleteConfirmed = useCallback(() => {
     setDeleting(() => true);
     window.setTimeout(onDelete, transitionDuration);
   }, [onDelete, transitionDuration]);
+
+  const onDeleteCancel = useCallback(() => {
+    setTouching(() => false);
+    setTranslate(() => 0);
+    setDeleting(() => false);
+    startTouchPosition.current = 0;
+    initTranslate.current = 0;
+  }, []);
+
+  const onDeleteClick = useCallback(() => {
+    if (onDeleteConfirm) {
+      onDeleteConfirm(onDeleteConfirmed, onDeleteCancel);
+    } else {
+      onDeleteConfirmed();
+    }
+  }, [onDeleteCancel, onDeleteConfirm, onDeleteConfirmed]);
 
   const onMouseUp = useCallback(
     function () {

@@ -13,6 +13,13 @@ const App = () => {
         <SwipeToDelete
           key={item.content}
           height={50}
+          onDeleteConfirm={(onSuccess: Function, onCancel: Function) => {
+            if (window.confirm("supprimer")) {
+              onSuccess();
+            } else {
+              onCancel();
+            }
+          }}
           onDelete={() => setItems(items.filter((i) => i.content !== item.content))}>
           <span className="item">
             <div className="dot" style={{ backgroundColor: item.color }} />

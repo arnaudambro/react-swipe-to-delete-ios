@@ -36,6 +36,14 @@ import SwipeToDelete from 'react-swipe-to-delete-ios'
   deleteComponent={<DeleteComponent/>} // not default
   disabled={false} // default
   rtl={false} // default
+  onDeleteConfirm={(onSuccess, onCancel) => {
+    // not default - default is null
+    if (window.confirm("Do you really want to delete this item ?")) {
+      onSuccess();
+    } else {
+      onCancel();
+    }
+  }}
 >
   {children}
 </SwipeToDelete>
@@ -46,6 +54,7 @@ import SwipeToDelete from 'react-swipe-to-delete-ios'
 | Prop               | Type        | Default                                    |
 | ------------------ | ----------- | ------------------------------------------ |
 | **onDelete**       | function    | _required_                                 |
+| onDeleteConfirm    | function    | null                                       |
 | height             | number      | 50                                         |
 | transitionDuration | number (ms) | 250                                        |
 | deleteWidth        | number (px) | 75                                         |
