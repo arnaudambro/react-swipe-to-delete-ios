@@ -1,1 +1,3 @@
-export * from "./SwipeToDelete";
+import SwipeToDelete from "./SwipeToDelete";
+
+export default SwipeToDelete;
