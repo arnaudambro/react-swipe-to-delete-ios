@@ -4,9 +4,6 @@
   "homepage": "https://arnaudambro.github.io/react-swipe-to-delete-ios/",
   "author": "@arnaudambro",
   "license": "MIT",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/arnaudambro"
-  },
   "repository": {
     "type": "git",
     "url": "git@github.com:arnaudambro/react-swipe-to-delete-ios.git"
