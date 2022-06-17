@@ -31,6 +31,8 @@ import SwipeToDelete from 'react-swipe-to-delete-ios'
   height={50} // default
   transitionDuration={250} // default
   deleteWidth={75} // default
+  deleteThreshold={75} // default
+  showDeleteAction={true} //default
   deleteColor="rgba(252, 58, 48, 1.00)" // default
   deleteText="Delete" // default
   deleteComponent={<DeleteComponent/>} // not default
@@ -60,6 +62,8 @@ import SwipeToDelete from 'react-swipe-to-delete-ios'
 | height             | number      | 50                                         |
 | transitionDuration | number (ms) | 250                                        |
 | deleteWidth        | number (px) | 75                                         |
+| deleteThreshold    | number (%)  | 75                                         |
+| showDeleteAction   | bool        | true                                       |
 | deleteColor        | string      | "rgba(252, 58, 48, 1.00)"                  |
 | deleteText         | string      | "Delete" (_deleteText or deleteComponent_) |
 | deleteComponent    | node        | null (_deleteText or deleteComponent_)     |
