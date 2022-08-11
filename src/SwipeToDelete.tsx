@@ -20,9 +20,9 @@ export interface Props {
 }
 
 const cursorPosition = (event: TouchEvent | MouseEvent | React.TouchEvent | React.MouseEvent) => {
-  if (event instanceof TouchEvent) return event.touches[0].clientX;
-  if (event instanceof MouseEvent) return event.clientX;
-  if (event.nativeEvent instanceof TouchEvent) return event.nativeEvent.touches[0].clientX;
+  if (event instanceof window.TouchEvent) return event.touches[0].clientX;
+  if (event instanceof window.MouseEvent) return event.clientX;
+  if (event.nativeEvent instanceof window.TouchEvent) return event.nativeEvent.touches[0].clientX;
   return event.nativeEvent.clientX;
 };
 
@@ -51,7 +51,7 @@ const SwipeToDelete = ({
   const initTranslate = useRef(0);
   const container = useRef<HTMLDivElement>(null);
   const containerWidth: number = container.current?.getBoundingClientRect().width || 0;
-  const deleteWithoutConfirmThreshold: number = containerWidth * (deleteThreshold/100);
+  const deleteWithoutConfirmThreshold: number = containerWidth * (deleteThreshold / 100);
 
   const onStart = useCallback(
     (event: React.TouchEvent | React.MouseEvent) => {
@@ -134,12 +134,8 @@ const SwipeToDelete = ({
     function () {
       startTouchPosition.current = 0;
       const acceptableMove = -deleteWidth * 0.7;
-      const showDelete = showDeleteAction
-        ? (rtl ? -1 : 1) * translate < acceptableMove
-        : false;
-      const notShowDelete = showDeleteAction
-        ? (rtl ? -1 : 1) * translate >= acceptableMove
-        : true;
+      const showDelete = showDeleteAction ? (rtl ? -1 : 1) * translate < acceptableMove : false;
+      const notShowDelete = showDeleteAction ? (rtl ? -1 : 1) * translate >= acceptableMove : true;
       const deleteWithoutConfirm = (rtl ? 1 : -1) * translate >= deleteWithoutConfirmThreshold;
       if (deleteWithoutConfirm) {
         setTranslate(() => -containerWidth);
