@@ -17,6 +17,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "dev": "vite",
+    "publish": "npm publish && git push",
     "rollup": "rollup -c"
   },
   "keywords": [
@@ -43,6 +44,7 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-terser": "^7.0.2",
+    "tslib": "^2.4.0",
     "typescript": "^4.6.4",
     "vite": "^3.0.4"
   }
