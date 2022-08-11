@@ -9,6 +9,8 @@ export interface Props {
   height?: number;
   transitionDuration?: number;
   deleteWidth?: number;
+  deleteThreshold?: number;
+  showDeleteAction?: boolean;
   deleteColor?: string;
   deleteText?: string;
   className?: string;
@@ -32,6 +34,8 @@ const SwipeToDelete = ({
   height = 50,
   transitionDuration = 250,
   deleteWidth = 75,
+  deleteThreshold = 75,
+  showDeleteAction = true,
   deleteColor = "rgba(252, 58, 48, 1.00)",
   deleteText = "Delete",
   className = "",
@@ -47,7 +51,7 @@ const SwipeToDelete = ({
   const initTranslate = useRef(0);
   const container = useRef<HTMLDivElement>(null);
   const containerWidth: number = container.current?.getBoundingClientRect().width || 0;
-  const deleteWithoutConfirmThreshold: number = containerWidth * 0.75;
+  const deleteWithoutConfirmThreshold: number = containerWidth * (deleteThreshold/100);
 
   const onStart = useCallback(
     (event: React.TouchEvent | React.MouseEvent) => {
@@ -130,8 +134,12 @@ const SwipeToDelete = ({
     function () {
       startTouchPosition.current = 0;
       const acceptableMove = -deleteWidth * 0.7;
-      const showDelete = (rtl ? -1 : 1) * translate < acceptableMove;
-      const notShowDelete = (rtl ? -1 : 1) * translate >= acceptableMove;
+      const showDelete = showDeleteAction
+        ? (rtl ? -1 : 1) * translate < acceptableMove
+        : false;
+      const notShowDelete = showDeleteAction
+        ? (rtl ? -1 : 1) * translate >= acceptableMove
+        : true;
       const deleteWithoutConfirm = (rtl ? 1 : -1) * translate >= deleteWithoutConfirmThreshold;
       if (deleteWithoutConfirm) {
         setTranslate(() => -containerWidth);
