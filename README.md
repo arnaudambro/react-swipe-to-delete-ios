@@ -1,5 +1,7 @@
 # react-swipe-to-delete-ios
 
+![Version](https://img.shields.io/badge/version-2.1.0-blue)
+
 A simple React component to reproduce the way iOS deletes an item in a list. 0 dependency.
 [Demo](https://arnaudambro.github.io/react-swipe-to-delete-ios)
 
