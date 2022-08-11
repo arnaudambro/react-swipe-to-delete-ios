@@ -19,11 +19,11 @@ export interface Props {
   children?: React.ReactNode;
 }
 
-const cursorPosition = (event: TouchEvent | MouseEvent | React.TouchEvent | React.MouseEvent) => {
-  if (event instanceof window.TouchEvent) return event.touches[0].clientX;
-  if (event instanceof window.MouseEvent) return event.clientX;
-  if (event.nativeEvent instanceof window.TouchEvent) return event.nativeEvent.touches[0].clientX;
-  return event.nativeEvent.clientX;
+const cursorPosition = (event: any) => {
+  if (event?.touches?.[0]?.clientX) return event.touches[0].clientX;
+  if (event?.clientX) return event?.clientX;
+  if (event?.nativeEvent?.touches?.[0]?.clientX) return event.nativeEvent.touches[0].clientX;
+  return event?.nativeEvent?.clientX;
 };
 
 const SwipeToDelete = ({
