@@ -17,7 +17,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "dev": "vite",
-    "publish": "npm run rollup && git push && npm publish",
+    "build-and-publish": "npm run rollup && git push && npm publish",
     "rollup": "rollup -c",
     "update-version": "node ./update-version.js"
   },
